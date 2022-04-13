@@ -39,7 +39,7 @@ function App() {
             <UncontrolledRating/>
 
             <OnOff press={press} callBack={(press) => changePressValue(press)}/>
-            <UncontrolledOnOff onChange={setPress}/> {press.toString()}
+            {/*<UncontrolledOnOff onChange={setPress}/> {press.toString()}*/}
         </div>
     );
 }
