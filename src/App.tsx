@@ -6,6 +6,7 @@ import {UncontrolledOnOff} from "./Components/OnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./Components/Accordion/UncontrolledAccodrion";
 import {UncontrolledRating} from "./Components/Rating/UncontrolledRating";
 import {OnOff} from "./Components/OnOff/OnOff";
+import {Input} from "./Components/Input";
 
 
 function App() {
@@ -36,10 +37,11 @@ function App() {
             <UncontrolledAccordion title={"UncontrolledAccordion1"}/>
 
             <Rating value={ratingValue} callBack={changeRatingValue}/>
-            <UncontrolledRating onChange={a=>a}/>
+            <UncontrolledRating onChange={a => a}/>
 
             <OnOff press={press} callBack={(press) => changePressValue(press)}/>
             {/*<UncontrolledOnOff onChange={setPress}/> {press.toString()}*/}
+            <Input title={"Suck"}/>
         </div>
     );
 }
