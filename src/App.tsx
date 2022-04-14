@@ -36,7 +36,7 @@ function App() {
             <UncontrolledAccordion title={"UncontrolledAccordion1"}/>
 
             <Rating value={ratingValue} callBack={changeRatingValue}/>
-            <UncontrolledRating/>
+            <UncontrolledRating onChange={a=>a}/>
 
             <OnOff press={press} callBack={(press) => changePressValue(press)}/>
             {/*<UncontrolledOnOff onChange={setPress}/> {press.toString()}*/}
