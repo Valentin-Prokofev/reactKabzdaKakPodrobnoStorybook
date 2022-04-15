@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Input, InputPropsType} from "./Input";
 import {Story} from "@storybook/react";
-import {Accordion, AccordionPropsType} from "./Accordion/Accodrion";
+import {Accordion, AccordionPropsType} from "../Accordion/Accodrion";
 
 export default {
     title: "Input",
@@ -22,7 +22,7 @@ ControlledInputWithFixedValue.args = {
 
 export const TrackValueOfUnControlledInput: Story<InputPropsType> = (args) => {
 
-    return <Input title={"Rock and Roll"} test={true} />
+    return <Input title={"Rock and Roll"} test={true}/>
 }
 
 export const GetValueOfUncontrolledInputByButtonPress: Story<InputPropsType> = (args) => {
@@ -31,18 +31,13 @@ export const GetValueOfUncontrolledInputByButtonPress: Story<InputPropsType> = (
     </>
 }
 
-// export const GetValueOfUncontrolledInputByButtonPress: Story<InputPropsType> = (args) => {
-//
-//     const [value, setValue] = useState("")
-//
-//     const onChangeHandler = (event:ChangeEvent<HTMLInputElement>) => {
-//         let actualValue = event.currentTarget.value
-//         setValue(actualValue)
-//     }
-//
-//     return <><Input title={"Button"}/>
-//     </>
-// }
+export const ControlledInput: Story<InputPropsType> = (args) => {
+    return (
+        <>
+            <Input/>
+        </>
+    )
+}
 
 
 

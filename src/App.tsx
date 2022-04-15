@@ -6,7 +6,8 @@ import {UncontrolledOnOff} from "./Components/OnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./Components/Accordion/UncontrolledAccodrion";
 import {UncontrolledRating} from "./Components/Rating/UncontrolledRating";
 import {OnOff} from "./Components/OnOff/OnOff";
-import {Input} from "./Components/Input";
+import {Input} from "./Components/Input/Input";
+import {ControlledInput} from "./Components/ControlledInput/ControlledInput";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
         <div className={"app"}>
             <PageTitle title={"Component"} class={"red"}/>
             <PageTitle title={"Компонент"} class={"blue"}/>
-            <Accordion
+            <Accordion onClick={()=>{}}
                 title={"Accordion1"}
                 collapsed={collapsed}
                 callBack={changeCollapsedValue}
@@ -42,6 +43,7 @@ function App() {
             <OnOff press={press} callBack={(press) => changePressValue(press)}/>
             {/*<UncontrolledOnOff onChange={setPress}/> {press.toString()}*/}
             <Input title={"Suck"}/>
+            <ControlledInput/>
         </div>
     );
 }

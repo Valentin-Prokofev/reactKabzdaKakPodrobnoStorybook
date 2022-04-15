@@ -30,7 +30,7 @@ export default {
 };
 
 const callback = action("accordion mode changed event fired  ")
-const onClickCallback = action("accordion mode changed event fired  ")
+const onClickCallback = action("some item was clicked  ")
 
 const Template: Story<AccordionPropsType> = (args) => <Accordion {...args}/>
 const callbacksPropsType = {
@@ -42,27 +42,34 @@ export const MenuCollapsedMode = Template.bind({})
 MenuCollapsedMode.args = {
     ...callbacksPropsType,
     title: 'Menu',
-    collapsed: true
+    collapsed: true,
+    items:[]
 }
 
 export const UsersUnCollapsedMode = Template.bind({})
 UsersUnCollapsedMode.args = {
     ...callbacksPropsType,
     title: 'Users',
-    collapsed: false
+    collapsed: false,
+    items:[{title: "Dimych", value: 1},
+        {title: "Valera", value: 2},
+        {title: "Sasha", value: 3},
+        {title: "Vasya", value: 4}]
 }
-
-// export const MenuCollapsedMode = () => <Accordion title={'Menu'} collapsed={true} callBack={callback}   Выпилили это в функцию выше
-//                                                   onclick={onClickCallback}/>
-// export const UsersUnCollapsedMode = () => <Accordion title={'Users'} collapsed={false} callBack={callback}  Выпилили это в функцию выше
-//                                                      onclick={onClickCallback}/>
 
 export const ModeChanging: Story<AccordionPropsType> = (args) => {
     const [value, setValue] = useState<boolean>(true)
-    return <Accordion {...args} collapsed={value} callBack={() => setValue(!value)}/>
+    return <Accordion
+        {...args}
+        collapsed={value}
+        callBack={() => setValue(!value)}
+        />
 }
-
-ModeChanging.args = {               //это типа из нового сторибука
-    title: "Users"
+ModeChanging.args = {
+    title: "Users",
+    items:[{title: "Dimych", value: 1},
+        {title: "Valera", value: 2},
+        {title: "Sasha", value: 3},
+        {title: "Vasya", value: 4}]
 }
 

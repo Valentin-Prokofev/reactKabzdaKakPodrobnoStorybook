@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useRef, useState} from 'react';
 
 export type InputPropsType = {
-    title: string
+    title?: string
     comingValue?: string
     test?: boolean
 }
@@ -28,14 +28,4 @@ export const Input = (props: InputPropsType) => {
             <button onClick={saveButton}>+
             </button>
             actual value:{value}</>
-
-
-    {/*<h3>{props.title}</h3>*/
-    }
-    {/*<input value={props.comingValue?props.comingValue:value}  onChange={onChangeHandler}/>*/
-    }
-    {/*<button onClick={()=>{setValue("yo")}}>+</button> actual value:{value}*/
-    }
-
-
 };
