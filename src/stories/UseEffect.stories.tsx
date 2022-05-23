@@ -11,11 +11,6 @@ export const SimpleExample = () => {
     useEffect(() => {
         console.log("useEffect")
         document.title = counter.toString()
-        //api.getUsers().then("")
-        //setInterval
-        //indexedBD
-        //document.getElementId
-        //document.title = "User"
     })
 
     return <>
@@ -24,24 +19,86 @@ export const SimpleExample = () => {
     </>
 }
 
-export const SetTimeoutExample = () => {
-    const [fake, setFake] = useState(1)
+export const SetIntervalExample = () => {
     const [counter, setCounter] = useState(1)
     console.log("setTimeout example")
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             setCounter(state => state + 1)
         }, 1000)
+        return () => {
+            clearInterval(intervalId)
+        }
     })
 
-
-
     return <>
-        Hello, {counter}
-        Hello, {fake}
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={() => setFake(fake + 1)}>+</button>
+        Hello, counter: {counter}
     </>
 }
+
+export const ResetEffectExample = () => {
+
+    const [counter, setCounter] = useState(1)
+    console.log("Component rendered")
+
+    useEffect(() => {
+        console.log("Effect occurred: " + counter)
+
+        return () => {
+            console.log("reset effect: " + counter)
+        }
+    }, [counter])
+
+    const increase = () => {
+        setCounter(counter + 1)
+    }
+
+    return <>
+        Hello,counter: {counter}
+        <button onClick={increase}>+</button>
+    </>
+}
+
+export const KeysTrackerExample = () => {
+
+    const [text, setText] = useState("")
+    console.log("Component rendered:" + text)
+
+    useEffect(() => {
+        console.log("WWWWWWWWW")
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText((state) => state + e.key)
+        }
+        window.addEventListener("keypress", handler)
+        return () => {
+            window.removeEventListener("keypress", handler)
+        }
+    }, [])
+
+    return <>
+        Typed text: {text}
+    </>
+}
+
+export const SetTimeoutExample = () => {
+
+    const [text, setText] = useState("")
+    console.log("Component rendered:" + text)
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setText("3 second passed")
+        }, 3000)
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    }, [text])
+
+    return <>
+        text: {text}
+    </>
+}
+
 
