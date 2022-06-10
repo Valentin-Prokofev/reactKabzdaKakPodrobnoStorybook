@@ -8,6 +8,8 @@ import {UncontrolledRating} from "./Components/Rating/UncontrolledRating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import {Input} from "./Components/Input/Input";
 import {ControlledInput} from "./Components/ControlledInput/ControlledInput";
+import {ReactMemo} from "./Components/react.memo/ReactMemo";
+import {UseMemo} from "./Components/UseMemo/UseMemo";
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <div className={"app"}>
             <PageTitle title={"Component"} class={"red"}/>
             <PageTitle title={"Компонент"} class={"blue"}/>
+            {/*<ReactMemo/>*/}
+            <UseMemo/>
             <Accordion onClick={()=>{}}
                 title={"Accordion1"}
                 collapsed={collapsed}
